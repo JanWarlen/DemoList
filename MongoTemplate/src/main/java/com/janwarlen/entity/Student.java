@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,5 +18,7 @@ public class Student {
     private String name;
 
     private int grade;
+
+    private Date birth;
 
 }

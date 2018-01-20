@@ -2,6 +2,7 @@ package com.janwarlen.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.janwarlen.common.Common;
 import com.janwarlen.entity.Student;
 import com.janwarlen.entity.Teacher;
 import io.swagger.annotations.Api;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -41,8 +43,14 @@ public class MongoTemplateInsertController {
     public String insertIntoMongoFunc1(@RequestBody JSONObject req) {
         //此处未指定collection名称，将会插入对象className的collection中，若此collection不存在，则创建
         //此处插入的collection名称为jSONObject
-        mongoTemplate.insert(req);
-        return successMsg();
+//        mongoTemplate.insert(req);
+        Student student = new Student();
+        student.setGrade(1);
+        student.setId("201801102003");
+        student.setName("小明2号");
+        student.setBirth(new Date());
+        mongoTemplate.insert(student);
+        return Common.successMsg();
     }
 
     /**
@@ -57,7 +65,7 @@ public class MongoTemplateInsertController {
     public String insertIntoMongoFunc2(@RequestBody JSONObject req) {
         //将对象插入指定的collection中
         mongoTemplate.insert(req, "test");
-        return successMsg();
+        return Common.successMsg();
     }
 
     /**
@@ -73,7 +81,7 @@ public class MongoTemplateInsertController {
         //此处未指定collection名称，将会插入对象className的collection中，若此collection不存在，则创建.此处为集合批量插入
         //此处插入的collection名称为jSONArray，插入数据条数为JSONArray数组大小
         mongoTemplate.insert(req, JSONArray.class);
-        return successMsg();
+        return Common.successMsg();
     }
 
     /**
@@ -88,7 +96,7 @@ public class MongoTemplateInsertController {
     public String insertIntoMongoFunc4(@RequestBody JSONArray req) {
         //将对象插入指定的collection中，此处为集合批量插入
         mongoTemplate.insert(req, "test2");
-        return successMsg();
+        return Common.successMsg();
     }
 
     @RequestMapping(value = "insertIntoMongoFunc5", method = RequestMethod.GET)
@@ -108,7 +116,7 @@ public class MongoTemplateInsertController {
         list.add(teacher);
         //在list中的每个对象分别插入对象class类名的collection中，逐条
         mongoTemplate.insertAll(list);
-        return successMsg();
+        return Common.successMsg();
     }
 
     /**
@@ -126,7 +134,7 @@ public class MongoTemplateInsertController {
         // .LinkedHashMap，猜测应该是JSONArray中的JSONObject在@RequestBody映射（？不太确定用词是否准确）时并没有转换为JSONObject，
         // 而是转换为了LinkedHashMap，另关于其他Map类型是否会出现同样错误未曾实验，源码阅读出现未能理解代码，希望有同学能够解惑
         mongoTemplate.insertAll(req);
-        return successMsg();
+        return Common.successMsg();
     }
 
     /**
@@ -146,7 +154,7 @@ public class MongoTemplateInsertController {
         list.add(first);
         list.add(second);
         mongoTemplate.insertAll(list);
-        return successMsg();
+        return Common.successMsg();
     }
 
     /**
@@ -160,7 +168,7 @@ public class MongoTemplateInsertController {
         //save 方法同样使用mappingContext.getPersistentEntity(type),但与insertAll不同的是，此处不针对对象内部对象
         //预计使用jsonArray将会插入一条数据在jSONArray的collection中
         mongoTemplate.save(req);
-        return successMsg();
+        return Common.successMsg();
     }
 
     /**
@@ -187,7 +195,7 @@ public class MongoTemplateInsertController {
         list.add(student);
         list.add(teacher);
         mongoTemplate.save(list);
-        return successMsg();
+        return Common.successMsg();
     }
 
     /**
@@ -199,13 +207,6 @@ public class MongoTemplateInsertController {
     @ApiOperation(notes = "save(Object objectToSave, String collectionName)", value = "插入mongo方式7", produces = "application/json")
     public String saveIntoMongoFunc3(@RequestBody JSONObject req) {
         mongoTemplate.save(req,"test2");
-        return successMsg();
+        return Common.successMsg();
     }
-
-    private String successMsg() {
-        JSONObject res = new JSONObject();
-        res.put("res", "success");
-        return res.toJSONString();
-    }
-
 }
