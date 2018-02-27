@@ -8,6 +8,8 @@
     <modules>
         <module>ElasticjobDemo</module>
         <module>MongoTemplate</module>
+        <module>BasicGrammarDemo</module>
+        <module>CuratorDemo</module>
     </modules>
     <packaging>pom</packaging>
 
