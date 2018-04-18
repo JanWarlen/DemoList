@@ -10,6 +10,7 @@
         <module>MongoTemplate</module>
         <module>BasicGrammarDemo</module>
         <module>CuratorDemo</module>
+        <module>DataStructDemo</module>
     </modules>
     <packaging>pom</packaging>
 
