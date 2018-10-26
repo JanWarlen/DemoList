@@ -11,6 +11,8 @@
         <module>BasicGrammarDemo</module>
         <module>CuratorDemo</module>
         <module>DataStructDemo</module>
+        <module>dynamiclogger</module>
+        <module>selfjar</module>
     </modules>
     <packaging>pom</packaging>
 
