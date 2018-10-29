@@ -13,6 +13,7 @@
         <module>DataStructDemo</module>
         <module>dynamiclogger</module>
         <module>selfjar</module>
+        <module>RedisLockDemo</module>
     </modules>
     <packaging>pom</packaging>
 
