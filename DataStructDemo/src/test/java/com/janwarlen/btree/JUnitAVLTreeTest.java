@@ -4,6 +4,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class JUnitAVLTreeTest {
 

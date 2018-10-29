@@ -59,4 +59,17 @@ public class JUnitSynchronizedDemo {
         }).start();
     }
 
+    @Test
+    public void testSynchronizedParamObj() throws InterruptedException {
+        byte[] test = new byte[1];
+        test[0] = 0;
+        TestThreadA a = new TestThreadA(test);
+        a.setName("1");
+        TestThreadB b = new TestThreadB(test);
+        b.setName("2");
+        a.start();
+        b.start();
+        Thread.sleep(20 * 1000);
+    }
+
 }

@@ -234,14 +234,14 @@ public class RBTree<T extends  Comparable<? super T>> {
     private void fixAfterInsert(Node<T> e) {
         // 父节点为红色才进行处理
         while (null != e && root != e && RED == e.parent.color) {
-            if (parentOf(e) == leftOf(parentOf(e))) {
+            if (parentOf(e) == leftOf(parentOf(parentOf(e)))) {
                 // 父节点为祖节点的左节点
                 Node<T> u = rightOf(parentOf(parentOf(e)));
                 if (RED == colorOf(u)) {
                     // 叔节点为红色 wiki：case 3
                     setColor(parentOf(e), BLACK);
                     setColor(u, BLACK);
-                    setColor(parentOf(parentOf(e)), BLACK);
+                    setColor(parentOf(parentOf(e)), RED);
                     e = parentOf(parentOf(e));
                 } else {
                     // 叔节点为黑色
@@ -262,7 +262,7 @@ public class RBTree<T extends  Comparable<? super T>> {
                     // 叔节点为红色 wiki：case 3
                     setColor(parentOf(e), BLACK);
                     setColor(u, BLACK);
-                    setColor(parentOf(parentOf(e)), BLACK);
+                    setColor(parentOf(parentOf(e)), RED);
                     e = parentOf(parentOf(e));
                 } else {
                     // 叔节点为黑色
@@ -278,6 +278,7 @@ public class RBTree<T extends  Comparable<? super T>> {
                 }
             }
         }
+        root.color = BLACK;
     }
 
     // 右旋转（方向）
@@ -300,27 +301,28 @@ public class RBTree<T extends  Comparable<? super T>> {
     // 左旋转（方向）
     private void rotateLeft(Node<T> e) {
         if (null != e) {
-            Node<T> p = e.parent;
-            Node<T> r = p.right;
-            p.right = r.left;
+            Node<T> r = e.right;
+            e.right = r.left;
             if (null != r.left) {
-                r.left.parent = p;
+                r.left.parent = e;
             }
-            r.parent = p.parent;
-            if (null == p.parent) {
+            r.parent = e.parent;
+            if (null == e.parent) {
                 root = r;
-            } else if (p.parent.left == p) {
-                p.parent.left = r;
+            } else if (e.parent.left == e) {
+                e.parent.left = r;
             } else {
-                p.parent.right = r;
+                e.parent.right = r;
             }
-            r.left = p;
-            p.parent = r;
+            r.left = e;
+            e.parent = r;
         }
     }
 
     private void setColor(Node<T> e, boolean color) {
-        e.color = color;
+        if (null != e) {
+            e.color = color;
+        }
     }
 
     // 获取该节点的颜色

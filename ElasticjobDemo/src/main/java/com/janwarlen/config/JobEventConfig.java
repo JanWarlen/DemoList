@@ -25,7 +25,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 
-@Configuration
+
 public class JobEventConfig {
 
     @Resource
