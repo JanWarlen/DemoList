@@ -14,6 +14,7 @@
         <module>dynamiclogger</module>
         <module>selfjar</module>
         <module>RedisLockDemo</module>
+        <module>SpringBootHelloWorld</module>
     </modules>
     <packaging>pom</packaging>
 

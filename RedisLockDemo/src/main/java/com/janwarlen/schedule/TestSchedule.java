@@ -21,16 +21,18 @@ public class TestSchedule {
     @Autowired
     private RedisLock redisLock;
 
-    @Scheduled(cron = "0/30 * * * * *")
+    @Scheduled(cron = "0/5 * * * * *")
     public void testRedisLock() throws InterruptedException {
         CronSequenceGenerator cronSequenceGenerator = new CronSequenceGenerator("0/30 * * * * *");
         Date next = cronSequenceGenerator.next(new Date());
         String nextDate = String.valueOf(next.getTime() - 100);
+        RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
         if (redisLock.lock("testRedisLock", nextDate)) {
-            RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
-            LOGGER.info("--------------------------"+ runtimeMXBean.getName() +"----------------------------------");
-            Thread.sleep(30 * 1000);
-            redisLock.unlock("testRedisLock", nextDate);
+            System.out.println("--------------------------" + runtimeMXBean.getName() + "----------------------------------");
+//            Thread.sleep(30 * 1000);
+//            redisLock.unlock("testRedisLock", nextDate);
+        } else {
+            System.out.println("-------------------------locked:" + runtimeMXBean.getName() + "----------------------------");
         }
 
     }

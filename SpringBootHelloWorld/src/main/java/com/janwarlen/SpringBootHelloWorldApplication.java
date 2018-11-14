@@ -2,12 +2,15 @@ package com.janwarlen;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableScheduling;
 
+/**
+ * @Auther: wangjian
+ * @Date: 2018/11/6 21:07
+ * @Description:
+ */
 @SpringBootApplication
-@EnableScheduling
-public class RedisLockDemoApplication {
+public class SpringBootHelloWorldApplication {
     public static void main(String[] args) {
-        SpringApplication.run(RedisLockDemoApplication.class, args);
+        SpringApplication.run(SpringBootHelloWorldApplication.class, args);
     }
 }

@@ -49,22 +49,17 @@ public class LogUtil {
 
             configuration.addAppender(customizeRollingFileAppender);
 
-            AppenderRef customizeRollingFileAppender1 = AppenderRef.createAppenderRef("customizeRollingFileAppender", Level.INFO, null);
+            // 创建新logger进行日志分流（可根据包路径精确区分）
+            /*AppenderRef customizeRollingFileAppender1 = AppenderRef.createAppenderRef("customizeRollingFileAppender", Level.INFO, null);
             AppenderRef[] refs = new AppenderRef[] {customizeRollingFileAppender1};
             LoggerConfig loggerConfig = LoggerConfig.createLogger(false, Level.INFO, "com.janwarlen",
                     "true", refs, null, configuration, null);
             loggerConfig.addAppender(customizeRollingFileAppender, Level.INFO, null);
-            configuration.addLogger("com.janwarlen", loggerConfig);
-//            configuration.getLoggerConfig("com.janwarlen").addAppender(customizeRollingFileAppender, Level.INFO, null);
+            configuration.addLogger("com.janwarlen", loggerConfig);*/
 
-//            org.apache.logging.log4j.core.Logger logger = (org.apache.logging.log4j.core.Logger) LogManager.getLogger("com.janwarlen");
-//            logger.addAppender(configuration.getAppender("customizeRollingFileAppender"));
-//            logger.setAdditive(false);
-//            logger.getContext().updateLoggers();
-//        configuration.addLoggerAppender((org.apache.logging.log4j.core.Logger) LogManager.getLogger("com.janwarlen"),
-//                customizeRollingFileAppender);
+            // 在根日志记录器上添加分流
+            configuration.getRootLogger().addAppender(customizeRollingFileAppender, Level.INFO, null);
         context.updateLoggers(configuration);
-//        context.reconfigure();
         } catch (Throwable e) {
             System.out.println(e.getMessage());
         }
