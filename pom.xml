@@ -15,6 +15,7 @@
         <module>selfjar</module>
         <module>RedisLockDemo</module>
         <module>SpringBootHelloWorld</module>
+        <module>RocketMQ</module>
     </modules>
     <packaging>pom</packaging>
 
