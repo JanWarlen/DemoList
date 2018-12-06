@@ -27,6 +27,10 @@
 ```
 redis分布式锁测试demo
 ```
+### RocketMQ
+```
+MQ使用练习
+```
 ### selfjar
 ```
 第三方jar测试使用demo，目前包含动态添加logger和appender测试demo

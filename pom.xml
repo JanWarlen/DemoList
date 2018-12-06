@@ -16,6 +16,8 @@
         <module>RedisLockDemo</module>
         <module>SpringBootHelloWorld</module>
         <module>RocketMQ</module>
+        <module>RedisDemo</module>
+        <module>CommonDemo</module>
     </modules>
     <packaging>pom</packaging>
 
