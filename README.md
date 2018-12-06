@@ -23,9 +23,10 @@
 ```
 1.使用MongoTemplate的增删改查
 ```
-### RedisLockDemo
+### RedisDemo
 ```
-redis分布式锁测试demo
+1. redis分布式锁测试demo
+2. redis多场景兼容demo（主要整合cachecloud）
 ```
 ### RocketMQ
 ```
