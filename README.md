@@ -2,6 +2,10 @@
 ```
 1. 基础语法测试
 ```
+### CommonDemo
+```
+1. 用作基础包，基础类与工具类集中
+```
 ### CuratorDemo
 ```
 1. ZooKeeper的第三方客户端Curator的Tech Notes试验
