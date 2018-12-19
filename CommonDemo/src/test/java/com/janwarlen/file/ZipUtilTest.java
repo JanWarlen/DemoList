@@ -1,5 +1,6 @@
 package com.janwarlen.file;
 
+import org.apache.commons.compress.utils.Charsets;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
@@ -44,7 +45,7 @@ public class ZipUtilTest {
 
     @Test
     public void testUnZipFile() {
-        ZipUtil.unZipFile("/usr/local/dev/tmp/test.zip", "/usr/local/dev/tmp/unzip");
+        ZipUtil.unZipFile("/usr/local/dev/tmp/test.zip", "/usr/local/dev/tmp/unzip", Charsets.UTF_8);
     }
 
 }

@@ -3,6 +3,7 @@ package com.janwarlen.file;
 import com.janwarlen.constant.DigitConstant;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.zip.ZipArchiveInputStream;
+import org.apache.commons.compress.utils.Charsets;
 import org.apache.commons.compress.utils.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.zip.ZipEntry;
@@ -11,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.nio.charset.Charset;
 import java.util.List;
 import java.util.zip.ZipInputStream;
 
@@ -123,7 +125,16 @@ public class ZipUtil {
         fis.close();
     }
 
-    public static void unZipFile(String zipFile, String unZipPath) {
+    /**
+     * 解压文件
+     * @param zipFile 压缩包绝对路径
+     * @param unZipPath 解压路径
+     * @param encode 编码
+     */
+    public static void unZipFile(String zipFile, String unZipPath, Charset encode) {
+        if (null == encode) {
+            encode = Charsets.UTF_8;
+        }
         File file = new File(zipFile);
         // 如果 destDir 为 null, 空字符串, 或者全是空格, 则解压到压缩文件所在目录
         if(StringUtils.isBlank(unZipPath)) {
