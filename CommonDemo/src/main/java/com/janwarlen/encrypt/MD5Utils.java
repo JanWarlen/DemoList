@@ -10,8 +10,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * @author angju
- * @date 2017/11/23 15:48
+ * @Auther: wangjian
+ * @Date: 2018/12/19 11:25
+ * @Description: md5工具
  */
 public class MD5Utils {
     private static final Logger logger = LoggerFactory.getLogger(MD5Utils.class);

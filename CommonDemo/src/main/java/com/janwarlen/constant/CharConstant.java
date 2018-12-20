@@ -3,7 +3,7 @@ package com.janwarlen.constant;
 /**
  * @Auther: wangjian
  * @Date: 2018/12/6 14:59
- * @Description:
+ * @Description: 字符常量类
  */
 public class CharConstant {
     public static final char SPACE = ' ';

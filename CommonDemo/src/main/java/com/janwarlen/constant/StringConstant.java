@@ -3,7 +3,7 @@ package com.janwarlen.constant;
 /**
  * @Auther: wangjian
  * @Date: 2018/12/6 14:54
- * @Description:
+ * @Description: 字符串常量类
  */
 public class StringConstant {
 

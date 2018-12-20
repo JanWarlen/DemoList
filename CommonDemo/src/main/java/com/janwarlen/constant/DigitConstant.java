@@ -3,7 +3,7 @@ package com.janwarlen.constant;
 /**
  * @Auther: wangjian
  * @Date: 2018/12/6 14:48
- * @Description:
+ * @Description: 整数常量类
  */
 public class DigitConstant {
 

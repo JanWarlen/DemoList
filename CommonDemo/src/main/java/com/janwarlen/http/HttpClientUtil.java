@@ -23,6 +23,11 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author wangjian
+ * @date 2018年12月20日11:29:19
+ * @Description: http请求工具
+ */
 public class HttpClientUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(HttpClientUtil.class);
 

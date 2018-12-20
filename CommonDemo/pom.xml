@@ -69,10 +69,10 @@
         <!--使用压缩工具-->
         <dependency>
             <groupId>org.apache.ant</groupId>
-            <artifactId>ant</arti<!--解压-->factId>
+            <artifactId>ant</artifactId>
             <version>1.9.2</version>
         </dependency>
-
+        <!--解压-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-compress</artifactId>

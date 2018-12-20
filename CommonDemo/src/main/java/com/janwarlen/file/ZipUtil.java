@@ -19,7 +19,7 @@ import java.util.zip.ZipInputStream;
 /**
  * @Auther: wangjian
  * @Date: 2018/12/19 11:25
- * @Description:
+ * @Description: 压缩工具
  */
 public class ZipUtil {
 
