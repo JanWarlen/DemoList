@@ -60,6 +60,10 @@ public class LimitQueue<E> implements Queue<E>{
 
     @Override
     public boolean add(E e) {
+        if(queue.size() >= limit){
+            //如果超出长度,入队时,先出队
+            queue.poll();
+        }
         return queue.add(e);
     }
 
