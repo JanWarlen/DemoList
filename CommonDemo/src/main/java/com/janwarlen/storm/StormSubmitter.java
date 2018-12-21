@@ -22,6 +22,7 @@ import java.io.File;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -221,9 +222,9 @@ public class StormSubmitter {
                     throw new RuntimeException("Topology with name `" + name + "` already exists on cluster");
                 }
                 String jar = null;
-                String mergePackPath = stormConf.get("mergePackLocation").toString();
-                if (StringUtils.isNotBlank(mergePackPath)) {
-                    jar = mergePackPath;
+                Object mergePackPath = stormConf.get("mergePackLocation");
+                if (Objects.nonNull(mergePackPath)) {
+                    jar = mergePackPath.toString();
                 } else {
                     jar = submitJarAs(conf, System.getProperty("storm.jar"), progressListener, asUser);
                 }
