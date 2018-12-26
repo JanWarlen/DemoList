@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 /**
- * @Auther: wangjian
+ * @Auther: janwarlen
  * @Date: 2018/11/21 17:32
  * @Description:
  */

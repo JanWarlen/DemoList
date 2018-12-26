@@ -1,7 +1,7 @@
 package com.janwarlen.model;
 
 /**
- * @Auther: wangjian
+ * @Auther: janwarlen
  * @Date: 2018/11/25 17:34
  * @Description:
  */

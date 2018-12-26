@@ -1,7 +1,7 @@
 package com.janwarlen.model.redis;
 
 /**
- * @Auther: wangjian
+ * @Auther: janwarlen
  * @Date: 2018/12/6 11:43
  * @Description:
  */

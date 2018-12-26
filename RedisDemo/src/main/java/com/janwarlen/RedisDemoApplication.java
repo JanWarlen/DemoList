@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * @Auther: wangjian
+ * @Auther: janwarlen
  * @Date: 2018/12/5 15:01
  * @Description:
  */
