@@ -1,7 +1,7 @@
 package com.janwarlen.constant;
 
 /**
- * @Auther: wangjian
+ * @Auther: janwarlen
  * @Date: 2018/12/6 14:54
  * @Description: 字符串常量类
  */

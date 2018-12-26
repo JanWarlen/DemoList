@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * @Auther: wangjian
+ * @Auther: janwarlen
  * @Date: 2018/12/20 14:50
  * @Description: 定长队列，顶出先入元素
  */

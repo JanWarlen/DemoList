@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author wangjian
+ * @author janwarlen
  * @date 2018年12月20日11:29:19
  * @Description: http请求工具
  */

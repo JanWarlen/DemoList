@@ -3,7 +3,6 @@ package com.janwarlen.file;
 import com.janwarlen.constant.DigitConstant;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.zip.ZipArchiveInputStream;
-import org.apache.commons.compress.utils.Charsets;
 import org.apache.commons.compress.utils.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.zip.ZipEntry;
@@ -14,10 +13,9 @@ import org.slf4j.LoggerFactory;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.util.List;
-import java.util.zip.ZipInputStream;
 
 /**
- * @Auther: wangjian
+ * @Auther: janwarlen
  * @Date: 2018/12/19 11:25
  * @Description: 压缩工具
  */
