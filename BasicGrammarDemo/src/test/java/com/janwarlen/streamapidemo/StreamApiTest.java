@@ -11,7 +11,7 @@ import java.util.*;
 import java.util.stream.*;
 
 /**
- * @auther: wangjian
+ * @auther: janwarlen
  * @Date: 2018/12/21 10:22
  * @Description: 练习java8StreamApi
  * 原始网站：https://www.baeldung.com/java-8-streams

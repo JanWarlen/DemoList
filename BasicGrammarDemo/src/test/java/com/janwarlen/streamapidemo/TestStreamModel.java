@@ -1,7 +1,7 @@
 package com.janwarlen.streamapidemo;
 
 /**
- * @Auther: wangjian
+ * @Auther: janwarlen
  * @Date: 2018/12/24 11:21
  * @Description:
  */
