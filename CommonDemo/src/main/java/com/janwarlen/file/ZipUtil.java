@@ -133,7 +133,7 @@ public class ZipUtil {
      */
     public static void unZipFile(String zipFile, String unZipPath, Charset encode) {
         if (null == encode) {
-            encode = Charsets.UTF_8;
+            encode = Charset.forName("UTF-8");
         }
         File file = new File(zipFile);
         // 如果 destDir 为 null, 空字符串, 或者全是空格, 则解压到压缩文件所在目录
