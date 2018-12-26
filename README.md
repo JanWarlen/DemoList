@@ -23,6 +23,11 @@
 ```
 1. SpringBoot 与 Elastic-Job 整合Demo
 ```
+### MockitoPowerMockDemo
+```
+1. SpringBoot整合Mockito与PowerMock
+2. 覆盖简单基础单元测试demo
+```
 ### MongoTemplate
 ```
 1.使用MongoTemplate的增删改查
