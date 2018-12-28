@@ -13,4 +13,12 @@ public class Static {
     public static String staticWithParam(String param) {
         return param + "_";
     }
+
+    public static void staticVoid() {
+        System.out.println("staticVoid");
+    }
+
+    public static void staticVoidWithParam(String param) {
+        System.out.println(staticWithParam(param));
+    }
 }

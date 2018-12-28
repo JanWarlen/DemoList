@@ -44,4 +44,28 @@ public class StaticTest extends BasedTest {
         Assert.assertEquals("static_", Static.staticWithParam("static"));
         Assert.assertEquals("mockito static", Static.staticWithParam("test"));
     }
+
+    @Test
+    public void testStaticVoid() throws Exception {
+        PowerMockito.spy(Static.class);
+        PowerMockito.doNothing().when(Static.class, "staticVoid");
+        Static.staticVoid();
+    }
+
+    @Test
+    public void testStaticVoidWithParam() throws Exception {
+        PowerMockito.mockStatic(Static.class);
+        PowerMockito.doCallRealMethod().when(Static.class, "staticVoidWithParam", Mockito.anyString());
+        PowerMockito.doNothing().when(Static.class, "staticVoidWithParam", "test");
+        // 实际调用
+        Static.staticVoidWithParam("1");
+        // 验证调用次数
+        PowerMockito.verifyStatic(Mockito.times(1));
+        // 需要验证调用次数的方法
+        Static.staticWithParam("1");
+        // 同上
+        Static.staticVoidWithParam("test");
+        PowerMockito.verifyStatic(Mockito.never());
+        Static.staticWithParam("test");
+    }
 }
