@@ -64,6 +64,7 @@ public class StaticTest extends BasedTest {
         // 需要验证调用次数的方法
         Static.staticWithParam("1");
         // 同上
+        PowerMockito.verifyStatic(Mockito.never());
         Static.staticVoidWithParam("test");
         PowerMockito.verifyStatic(Mockito.never());
         Static.staticWithParam("test");

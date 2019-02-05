@@ -1,5 +1,9 @@
 package com.janwarlen.extenddemo;
 
+import com.janwarlen.extenddemo.family.Child;
+import com.janwarlen.extenddemo.family.Grandpa;
+import com.janwarlen.extenddemo.family.MaternalGrandPa;
+import com.janwarlen.extenddemo.family.Mother;
 import org.junit.Test;
 
 /**

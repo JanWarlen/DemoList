@@ -16,6 +16,7 @@ public class BasedTest {
 
     @Test
     public void baseTest() {
+        System.out.println("----------------------------------");
         System.out.println("hello mockito.");
     }
 }

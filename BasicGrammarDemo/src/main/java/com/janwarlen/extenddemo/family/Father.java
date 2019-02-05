@@ -1,4 +1,4 @@
-package com.janwarlen.extenddemo;
+package com.janwarlen.extenddemo.family;
 
 /**
  * @author janwarlen
