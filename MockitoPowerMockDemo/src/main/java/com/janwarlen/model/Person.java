@@ -10,6 +10,14 @@ public class Person {
     private String name;
     private Integer age;
 
+    public Person() {
+    }
+
+    public Person(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
+
     public String getName() {
         return name;
     }
@@ -28,6 +36,6 @@ public class Person {
 
     public String sayHi(String msg) {
         System.out.println("hello");
-        return "hi," + msg + ",my name is"+name+", i'm "+age+" years old now.";
+        return "hi," + msg + ",my name is "+name+", i'm "+age+" years old now.";
     }
 }

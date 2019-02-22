@@ -41,5 +41,7 @@ public class TestServiceTest extends BasedTest {
         PowerMockito.when(spy, "privateMethod", "test").thenReturn("mockito");
         Assert.assertEquals("mockito", spy.testPrivateMethod("test"));
         Assert.assertEquals("test2---", spy.testPrivateMethod("test2"));
+        PowerMockito.verifyPrivate(spy, Mockito.times(1))
+                .invoke("privateMethod", "test");
     }
 }
