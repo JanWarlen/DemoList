@@ -18,6 +18,9 @@
         <module>RedisDemo</module>
         <module>CommonDemo</module>
         <module>MockitoPowerMockDemo</module>
+        <module>ChronicleQueueDemo</module>
+        <module>TapeDemo</module>
+        <module>SpringBootEsDemo</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -26,12 +29,13 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.boot.version>2.1.4.RELEASE</spring.boot.version>
     </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.6.RELEASE</version>
+        <version>2.1.4.RELEASE</version>
     </parent>
 
     <dependencies>
