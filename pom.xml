@@ -13,14 +13,13 @@
         <module>DataStructDemo</module>
         <module>dynamiclogger</module>
         <module>selfjar</module>
-        <module>SpringBootHelloWorld</module>
         <module>RocketMQ</module>
         <module>RedisDemo</module>
         <module>CommonDemo</module>
         <module>MockitoPowerMockDemo</module>
         <module>ChronicleQueueDemo</module>
         <module>TapeDemo</module>
-        <module>SpringBootEsDemo</module>
+        <module>SpringBootDemoList</module>
     </modules>
     <packaging>pom</packaging>
 
