@@ -1,5 +1,6 @@
 package com.janwarlen.collectiondemo;
 
+
 import org.junit.Test;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -33,7 +34,12 @@ public class JUnitConcurrentHashMapTest {
         // 指定一个初始map，全部塞进新的map中
         // 此时初始容量使用 DEFAULT_CAPACITY = 16
         // 因此如果初始塞的map比较大，将会频繁触发扩容步骤
-        ConcurrentHashMap tmp = new ConcurrentHashMap(initialCapacityMap);
+        ConcurrentHashMap initWithMap = new ConcurrentHashMap(initialCapacityMap);
+        // 此处的加载因子不是全局设置，仅用作创建对象时生效
+        // initialCapacity / loadFactor，计算完成后再进行size的取2的指数值
+        ConcurrentHashMap initWithCapAndLoad = new ConcurrentHashMap(12, 1);
+        // concurrencyLevel 如果大于 initialCapacity ，则初始容量则会使用 concurrencyLevel 的值
+        ConcurrentHashMap initWithCapAndLoadAndConcurrencyLevel = new ConcurrentHashMap(12, 1, 11);
     }
 
 
