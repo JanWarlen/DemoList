@@ -86,10 +86,14 @@ public class RedisInitUtil {
                 ? jedisPoolConfig(redisProperties) : new JedisPoolConfig();
 
         if (getSentinelConfig(redisProperties) != null) {
-            return new JedisConnectionFactory(getSentinelConfig(redisProperties), poolConfig);
+            JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory(getSentinelConfig(redisProperties), poolConfig);
+            jedisConnectionFactory.afterPropertiesSet();
+            return jedisConnectionFactory;
         }
         if (getClusterConfiguration(redisProperties) != null) {
-            return new JedisConnectionFactory(getClusterConfiguration(redisProperties), poolConfig);
+            JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory(getClusterConfiguration(redisProperties), poolConfig);
+            jedisConnectionFactory.afterPropertiesSet();
+            return jedisConnectionFactory;
         }
         return new JedisConnectionFactory(getRedisStandaloneConfig(redisProperties));
     }
@@ -129,6 +133,7 @@ public class RedisInitUtil {
             RedisSentinelConfiguration config = new RedisSentinelConfiguration();
             config.master(sentinelProperties.getMaster());
             config.setSentinels(createSentinels(sentinelProperties));
+            config.setPassword(redisProperties.getPassword());
             return config;
         }
         return null;
