@@ -46,14 +46,14 @@ public class Test {
 
     @org.junit.Test
     public void testEsGet() {
-        Optional<TestCase> byId = testCaseRepository.findById(1L);
+        /*Optional<TestCase> byId = testCaseRepository.findById(1L);
         TestCase testCase = byId.get();
-        System.out.println(JSONObject.toJSONString(testCase));
+        System.out.println(JSONObject.toJSONString(testCase));*/
     }
 
     @org.junit.Test
     public void testEsByPage() {
-        int pageNumber = 0;
+        /*int pageNumber = 0;
         int pageSize = 10;
         // 构建搜索查询
 //        TermQueryBuilder nameQueryBuilder = QueryBuilders.termQuery("name", "test");
@@ -70,6 +70,6 @@ public class Test {
         Page<TestCase> testCasePage = testCaseRepository.search(searchQuery);
         List<TestCase> content = testCasePage.getContent();
         System.out.println(JSONObject.toJSONString(testCasePage));
-        System.out.println(JSONObject.toJSONString(content));
+        System.out.println(JSONObject.toJSONString(content));*/
     }
 }
