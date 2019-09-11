@@ -20,6 +20,7 @@
         <module>ChronicleQueueDemo</module>
         <module>TapeDemo</module>
         <module>SpringBootDemoList</module>
+        <module>SpringBootDemoList2</module>
     </modules>
     <packaging>pom</packaging>
 
