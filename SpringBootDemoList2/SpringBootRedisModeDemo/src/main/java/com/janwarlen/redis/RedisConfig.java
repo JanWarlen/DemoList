@@ -10,6 +10,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 
+import java.time.Duration;
+import java.util.Objects;
+
 @Configuration
 public class RedisConfig {
 
@@ -20,6 +23,14 @@ public class RedisConfig {
 
     @Value("${cachecloud.mode}")
     private String cachecloudMode;
+    @Value("${cachecloud.max-active}")
+    private Integer cachecloudMaxActive;
+    @Value("${cachecloud.max-wait}")
+    private Long cachecloudMaxWait;
+    @Value("${cachecloud.max-idle}")
+    private Integer cachecloudMaxIdle;
+    @Value("${cachecloud.min-idle}")
+    private Integer cachecloudMinIdle;
 
     @Value("${cachecloud.url}")
     private String cachecloudUrl;
@@ -38,6 +49,21 @@ public class RedisConfig {
             type = RedisEnvTypeEnum.getType(cachecloudMode);
             RedisEnvTypeEnum cachecloudType = RedisEnvTypeEnum.getType(cachecloudMode);
             RedisInitUtil.setRedisProperties(redisProperties, cachecloudType, cachecloudUrl);
+            RedisProperties.Jedis jedis = redisProperties.getJedis();
+            RedisProperties.Pool pool = jedis.getPool();
+            if (Objects.nonNull(cachecloudMaxActive)) {
+                pool.setMaxActive(cachecloudMaxActive);
+            }
+            if (Objects.nonNull(cachecloudMaxWait)) {
+                Duration maxWait = Duration.ofSeconds(cachecloudMaxWait);
+                pool.setMaxWait(maxWait);
+            }
+            if (Objects.nonNull(cachecloudMaxIdle)) {
+                pool.setMaxIdle(cachecloudMaxIdle);
+            }
+            if (Objects.nonNull(cachecloudMinIdle)) {
+                pool.setMinIdle(cachecloudMinIdle);
+            }
         }
         if (null == type) {
             LOGGER.error("RedisConfig error:cachecloud mode is null.");
