@@ -48,7 +48,7 @@ public class RedisInitUtil {
             }
             switch (type) {
                 case STANDALONE:
-                    String[] standalone = cacheCloud.getStandalone().split(StringConstant.SPACE);
+                    String[] standalone = cacheCloud.getStandalone().split(StringConstant.COLON);
                     redisProperties.setHost(standalone[DigitConstant.ZERO]);
                     redisProperties.setPort(Integer.parseInt(standalone[DigitConstant.ONE]));
                     break;
@@ -82,7 +82,8 @@ public class RedisInitUtil {
     public static JedisConnectionFactory createJedisConnectionFactory(RedisProperties redisProperties) {
         JedisPoolConfig poolConfig = redisProperties.getPool() != null
                 ? jedisPoolConfig(redisProperties) : new JedisPoolConfig();
-
+        poolConfig.setBlockWhenExhausted(true);
+        poolConfig.setTestOnBorrow(true);
         if (getSentinelConfig(redisProperties) != null) {
             return new JedisConnectionFactory(getSentinelConfig(redisProperties), poolConfig);
         }

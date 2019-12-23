@@ -8,6 +8,7 @@ package com.janwarlen.constant;
 public class StringConstant {
 
     public static final String SPACE = " ";
+    public static final String COLON = ":";
     public static final String COMMA_ENG = ",";
     public static final String COMMA_CN = "，";
 }
