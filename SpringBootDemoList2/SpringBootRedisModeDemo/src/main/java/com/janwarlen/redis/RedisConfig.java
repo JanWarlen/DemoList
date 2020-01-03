@@ -50,7 +50,13 @@ public class RedisConfig {
             RedisEnvTypeEnum cachecloudType = RedisEnvTypeEnum.getType(cachecloudMode);
             RedisInitUtil.setRedisProperties(redisProperties, cachecloudType, cachecloudUrl);
             RedisProperties.Jedis jedis = redisProperties.getJedis();
-            RedisProperties.Pool pool = jedis.getPool();
+            RedisProperties.Lettuce lettuce = redisProperties.getLettuce();
+            RedisProperties.Pool pool = null;
+            if (Objects.nonNull(jedis)) {
+                pool = jedis.getPool();
+            } else if (Objects.nonNull(lettuce)) {
+                pool = lettuce.getPool();
+            }
             if (Objects.nonNull(cachecloudMaxActive)) {
                 pool.setMaxActive(cachecloudMaxActive);
             }
