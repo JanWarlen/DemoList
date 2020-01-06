@@ -16,6 +16,7 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 import redis.clients.jedis.JedisPoolConfig;
+import redis.clients.jedis.JedisShardInfo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -90,8 +91,16 @@ public class RedisInitUtil {
         if (getClusterConfiguration(redisProperties) != null) {
             return new JedisConnectionFactory(getClusterConfiguration(redisProperties), poolConfig);
         }
-        return new JedisConnectionFactory(poolConfig);
+        return new JedisConnectionFactory(createStandAloneJedis(redisProperties));
     }
+
+    public static JedisShardInfo createStandAloneJedis(RedisProperties redisProperties) {
+        JedisShardInfo jedisShardInfo = new JedisShardInfo(redisProperties.getHost(), redisProperties.getPort());
+        jedisShardInfo.setPassword(redisProperties.getPassword());
+        jedisShardInfo.setConnectionTimeout(redisProperties.getTimeout());
+        return jedisShardInfo;
+    }
+
 
     /**
      * 从redisProperties中生成 JedisPoolConfig
