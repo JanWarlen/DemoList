@@ -17,6 +17,8 @@
     <modules>
         <module>SpringBootRedisModeDemo</module>
         <module>DateFormatDemo</module>
+        <module>HelloDemo</module>
+        <module>WebSocketDemo</module>
     </modules>
 
 
